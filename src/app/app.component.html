@@ -1,22 +1,24 @@
+<hr>
 <form #emailForm="ngForm">
   <input 
-  required name="email" 
+  name="email" 
+  required 
   [(ngModel)]="email"
   type="email"
   pattern=".+@.+\..+"
-  #emailControl='ngModel'
-  >
+  #emailControl='ngModel'>
 </form>
 
 <ng-container *ngIf="emailControl.invalid && emailControl.touched">
-  <div *ngIf="">
+  <div *ngIf="emailControl.errors?.['required']">
       You must enter an email!
   </div>
-  
+  <div *ngIf="emailControl.errors?.['pattern']">
+    You must enter an email! correct pattern!
+</div>
 </ng-container>
 <hr>
+
 <div>Is form Valid: {{ emailForm.valid }}</div>
-<div>Form Values: {{ emailForm.value | json }}</div>
+<div>Form Values: {{ emailForm.value | json | lowercase}}</div>
 
-
-<button class="btn btn-danger"></button>
