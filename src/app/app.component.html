@@ -10,12 +10,12 @@
 </form>
 
 <ng-container *ngIf="emailControl.invalid && emailControl.touched">
-  <div *ngIf="emailControl.errors?.['required']">
-      You must enter an email!
+  <div *ngIf="emailControl.errors?.['required']" class="alert alert-danger" role="alert">
+      You must enter an email! Properly
   </div>
-  <div *ngIf="emailControl.errors?.['pattern']">
+  <div *ngIf="emailControl.errors?.['pattern']" class="alert alert-danger" role="alert">
     You must enter an email! correct pattern!
-</div>
+  </div>
 </ng-container>
 <hr>
 
