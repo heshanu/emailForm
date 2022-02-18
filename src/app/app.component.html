@@ -7,7 +7,6 @@
   type="email"
   pattern=".+@.+\..+"
   #emailControl='ngModel'>
-</form>
 
 <ng-container *ngIf="emailControl.invalid && emailControl.touched">
   <div *ngIf="emailControl.errors?.['required']" class="alert alert-danger" role="alert">
@@ -17,6 +16,8 @@
     You must enter an email! correct pattern!
   </div>
 </ng-container>
+<button class="button is-primary" [disabled]="emailForm.invalid">Submit</button>
+</form>
 <hr>
 
 <div>Is form Valid: {{ emailForm.valid }}</div>
