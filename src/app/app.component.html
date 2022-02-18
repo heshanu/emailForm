@@ -1,4 +1,6 @@
+<h1 class="form-control">Email Validaiom using angular form template!</h1>
 <hr>
+<div class="container">
 <form #emailForm="ngForm">
   <input 
   name="email" 
@@ -6,7 +8,8 @@
   [(ngModel)]="email"
   type="email"
   pattern=".+@.+\..+"
-  #emailControl='ngModel'>
+  #emailControl='ngModel'
+  [ngClass]="{'is-danger':'emailControl.valid && emailControl.touched'}">
 
 <ng-container *ngIf="emailControl.invalid && emailControl.touched">
   <div *ngIf="emailControl.errors?.['required']" class="alert alert-danger" role="alert">
@@ -23,3 +26,4 @@
 <div>Is form Valid: {{ emailForm.valid }}</div>
 <div>Form Values: {{ emailForm.value | json | lowercase}}</div>
 
+</div>
